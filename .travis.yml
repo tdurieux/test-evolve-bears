@@ -12,4 +12,4 @@ script:
   - "./check_pr/travis-run.sh"
 
 after_success:
-  - echo "SUCCESS!"
+  - echo "Everything is ok."
