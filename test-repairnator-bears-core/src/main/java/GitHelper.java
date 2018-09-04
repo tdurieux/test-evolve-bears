@@ -57,6 +57,10 @@ public class GitHelper {
                     String line = reader.readLine().trim();
                     output.append(line + "\n");
                 }
+                // Remove last "\n"
+                if (!output.toString().isEmpty()) {
+                    output.delete(output.length() - 1, output.length());
+                }
             }
             process.destroy();
         } catch (IOException | InterruptedException e) {
