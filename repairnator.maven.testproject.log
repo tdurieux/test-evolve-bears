@@ -1,0 +1,141 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.ufu.lascam:test-repairnator-bears-core:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.ufu.lascam:test-repairnator-bears-core:[unknown-version], /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/pom.xml, line 15, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.ufu.lascam:test-repairnator-bears-patchstats:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.ufu.lascam:test-repairnator-bears-patchstats:[unknown-version], /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/pom.xml, line 15, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] test-repairnator-bears
+[INFO] test-repairnator-bears-core
+[INFO] test-repairnator-bears-patchstats
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears-core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test-repairnator-bears-core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ test-repairnator-bears-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ test-repairnator-bears-core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-repairnator-bears-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ test-repairnator-bears-core ---
+[INFO] Surefire report directory: /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/target/surefire-reports
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom (3 KB at 1.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom (3 KB at 6.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar (37 KB at 77.4 KB/sec)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running GitHelperTest
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace1584549667586612777
+Git command finished with exit code 0.
+Executing git command git diff --name-status 6565b62263c1a8209933587aa68dff5307abf32e e90c26bbfbdbdc9039090f4cd5108fc17273bf5d in /tmp/workspace1584549667586612777/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace8156111745183309406
+Git command finished with exit code 0.
+Executing git command git diff --numstat 6565b62263c1a8209933587aa68dff5307abf32e e90c26bbfbdbdc9039090f4cd5108fc17273bf5d in /tmp/workspace8156111745183309406/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace4925310190923421659
+Git command finished with exit code 0.
+Executing git command git checkout 64ac432f62f9b450ffb221fb8ff2caa8e81a6663 in /tmp/workspace4925310190923421659/bears-usage
+Git command finished with exit code 0.
+Executing git command git rev-parse HEAD in /tmp/workspace4925310190923421659/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace2894987495268001193
+Git command finished with exit code 0.
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.488 sec <<< FAILURE!
+testGitCheckoutCommit(GitHelperTest)  Time elapsed: 2.785 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...21fb8ff2caa8e81a6663[]> but was:<...21fb8ff2caa8e81a6663[
+]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at GitHelperTest.testGitCheckoutCommit(GitHelperTest.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Results :
+
+Failed tests:   testGitCheckoutCommit(GitHelperTest): expected:<...21fb8ff2caa8e81a6663[]> but was:<...21fb8ff2caa8e81a6663[(..)
+
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] test-repairnator-bears ............................. SUCCESS [  0.019 s]
+[INFO] test-repairnator-bears-core ........................ FAILURE [ 17.231 s]
+[INFO] test-repairnator-bears-patchstats .................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.375 s
+[INFO] Finished at: 2018-09-04T16:01:35+02:00
+[INFO] Final Memory: 12M/138M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project test-repairnator-bears-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :test-repairnator-bears-core
