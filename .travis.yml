@@ -1,0 +1,15 @@
+language: bash
+
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - chmod +x check_pr/travis-run.sh
+
+script:
+  - "./check_pr/travis-run.sh"
+
+after_success:
+  - echo "Everything is ok."
