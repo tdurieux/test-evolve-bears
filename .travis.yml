@@ -9,7 +9,7 @@ before_script:
   - chmod +x check_pr/travis-run.sh
 
 script:
-  - "./check_pr/travis-run.sh"
+  - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; ./check_pr/travis-run.sh; fi
 
 after_success:
   - echo "Everything is ok."

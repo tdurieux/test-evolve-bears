@@ -5,13 +5,6 @@ export M2_HOME=/usr/local/maven
 
 DOCKER_TAG=fermadeiral/test-evolve-bears:latest
 
-if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
+docker pull $DOCKER_TAG
 
-    docker pull $DOCKER_TAG
-
-    docker run -v ${pwd}:/var/app/pr $DOCKER_TAG
-
-
-else
-    echo "Nothing to check."
-fi
+docker run -v ${pwd}:/var/app/pr $DOCKER_TAG
