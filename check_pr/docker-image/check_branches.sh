@@ -5,7 +5,6 @@ if [ "$#" -ne 1 ]; then
     exit 2
 fi
 
-DOCKER_DEST=/tmp/result.txt
 BRANCH_NAME=$1
 
 RED='\033[0;31m'
@@ -27,6 +26,13 @@ MAVEN_TEST_ARGS="-Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=tr
 
 echo "Treating branch $BRANCH_NAME"
 
+echo "CHECK ORDER:"
+echo "- Existence of bears.json"
+echo "- Validity of bears.json"
+echo "- Number of commits"
+echo "- Maven test on buggy commit"
+echo "- Maven test on patched commit"
+
 cd pr
 
 if [ -e "bears.json" ]; then
@@ -35,13 +41,11 @@ if [ -e "bears.json" ]; then
     else
         RESULT="$BRANCH_NAME [FAILURE] (bears.json is invalid)"
         >&2 echo -e "$RED $RESULT $NC"
-        echo "$RESULT" >> $DOCKER_DEST
         exit 2
     fi
 else
     RESULT="$BRANCH_NAME [FAILURE] (bears.json does not exist)"
     >&2 echo -e "$RED $RESULT $NC"
-    echo "$RESULT" >> $DOCKER_DEST
     exit 2
 fi
 
@@ -50,7 +54,6 @@ numberOfCommits=`git rev-list --count HEAD`
 if [ "$numberOfCommits" -ne 3 ] && [ "$numberOfCommits" -ne 4 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (the number of commits is different than 3 and 4)"
     >&2 echo -e "$RED $RESULT $NC"
-    echo "$RESULT" >> $DOCKER_DEST
     exit 2
 fi
 
@@ -70,12 +73,12 @@ timeout 1800s mvn -q -B test -Dsurefire.printSummary=false $MAVEN_TEST_ARGS
 
 status=$?
 if [ "$status" -eq 0 ]; then
-    >&2 echo -e "$RED Error while reproducing the bug for branch $BRANCH_NAME $NC (status = $status)"
-    echo "$BRANCH_NAME [FAILURE] (bug reproduction - status = $status)" >> $DOCKER_DEST
+    RESULT="$BRANCH_NAME [FAILURE] (bug reproduction - status = $status)"
+    >&2 echo -e "$RED $RESULT $NC"
     exit 2
 elif [ "$status" -eq 124 ]; then
-    >&2 echo -e "$RED Error while reproducing the bug for branch $BRANCH_NAME $NC"
-    echo "$BRANCH_NAME [FAILURE] (bug reproduction timeout)" >> $DOCKER_DEST
+    RESULT="$BRANCH_NAME [FAILURE] (bug reproduction timeout)"
+    >&2 echo -e "$RED $RESULT $NC"
     exit 2
 fi
 
@@ -87,16 +90,15 @@ git checkout -q $patchCommitId
 timeout 1800s mvn -q -B test -Dsurefire.printSummary=false $MAVEN_TEST_ARGS
 
 status=$?
-if [ "$status" -eq 124 ]; then
-    >&2 echo -e "$RED Error while reproducing the passing build for branch $BRANCH_NAME $NC"
-    echo "$BRANCH_NAME [FAILURE] (patch reproduction timeout)" >> $DOCKER_DEST
+if [ "$status" -eq 0 ]; then
+    RESULT="$BRANCH_NAME [FAILURE] (patch reproduction - status = $status)"
+    >&2 echo -e "$RED $RESULT $NC"
     exit 2
-elif [ "$status" -ne 0 ]; then
-    >&2 echo -e "$RED Error while reproducing the passing build for branch $BRANCH_NAME $NC (status = $status)"
-    echo "$BRANCH_NAME [FAILURE] (patch reproduction - status = $status)" >> $DOCKER_DEST
+elif [ "$status" -eq 124 ]; then
+    RESULT="$BRANCH_NAME [FAILURE] (patch reproduction timeout)"
+    >&2 echo -e "$RED $RESULT $NC"
     exit 2
 fi
 
 RESULT="$BRANCH_NAME [OK]"
 echo -e "$GREEN $RESULT $NC"
-echo "$RESULT" >> $DOCKER_DEST
