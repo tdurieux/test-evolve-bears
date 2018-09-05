@@ -9,7 +9,13 @@ before_script:
   - chmod +x check_pr/travis-run.sh
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then ./check_pr/travis-run.sh; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
+      DOCKER_TAG=fermadeiral/test-evolve-bears:latest
+
+      docker pull "$DOCKER_TAG"
+
+      docker run -v ${pwd}:/var/app/pr "$DOCKER_TAG"
+    fi
 
 after_success:
   - echo "Everything is ok."
