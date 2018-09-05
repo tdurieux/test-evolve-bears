@@ -17,7 +17,7 @@ script:
       echo "It is a PR."
       docker pull "$DOCKER_TAG";
       docker run --name "$TRAVIS_PULL_REQUEST_BRANCH" --mount type=bind,source="$(pwd)",target=/var/app/pr --env BRANCH_NAME="$TRAVIS_PULL_REQUEST_BRANCH" "$DOCKER_TAG";
-      docker ps;
+      docker inspect "$TRAVIS_PULL_REQUEST_BRANCH" --format='{{.State.ExitCode}}'
     fi
 
 after_success:
