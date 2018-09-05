@@ -15,5 +15,7 @@ RUN npm install -g ajv-cli
 
 ENV M2_HOME=$MAVEN_HOME
 
+ENV BRANCH_NAME=
+
 WORKDIR /var/app/
-ENTRYPOINT /var/app/check_branches.sh
+ENTRYPOINT /var/app/check_branches.sh $BRANCH_NAME

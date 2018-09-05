@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-if [ "$#" -ne 2 ]; then
-    echo "Usage: ./check_branches.sh <github repository> <branch name>"
+if [ "$#" -ne 1 ]; then
+    echo "Usage: ./check_branches.sh <branch name>"
     exit 2
 fi
 
-
 DOCKER_DEST=/tmp/result.txt
-REPO=$1
-BRANCH_NAME=$2
+BRANCH_NAME=$1
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
