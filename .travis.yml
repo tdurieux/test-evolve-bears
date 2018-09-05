@@ -13,3 +13,8 @@ script:
 
 after_success:
   - echo "Everything is ok."
+
+branches:
+  - only:
+    - pr-add-bug
+

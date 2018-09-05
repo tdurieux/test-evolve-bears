@@ -5,7 +5,7 @@ export M2_HOME=/usr/local/maven
 
 DOCKER_TAG=fermadeiral/test-evolve-bears:latest
 
-if [ "$TRAVIS_PULL_REQUEST" = "true" ] && [ "$TRAVIS_BRANCH" = "pr-add-bug" ]; then
+if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
 
     docker pull $DOCKER_TAG
 
