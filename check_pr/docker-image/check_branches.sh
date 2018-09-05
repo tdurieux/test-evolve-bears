@@ -54,7 +54,7 @@ numberOfCommits=`git rev-list --count HEAD`
 if [ "$numberOfCommits" -ne 3 ] && [ "$numberOfCommits" -ne 4 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (the number of commits is different than 3 and 4)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 1
+    exit 2
 fi
 
 bugCommitId=`git log --format=format:%H --grep="Bug commit"`
