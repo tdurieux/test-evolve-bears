@@ -14,9 +14,8 @@ before_script:
 
 script:
   - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
-      docker pull "$DOCKER_TAG"
-
-      docker run -v ${pwd}:/var/app/pr "$DOCKER_TAG"
+      docker pull "$DOCKER_TAG";
+      docker run -v ${pwd}:/var/app/pr "$DOCKER_TAG";
     fi
 
 after_success:
