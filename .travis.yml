@@ -13,10 +13,10 @@ before_script:
   - chmod +x check_pr/travis-run.sh
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
       echo "It is a PR."
       docker pull "$DOCKER_TAG";
-      docker run --name test -v ${pwd}:/var/app/pr "$DOCKER_TAG";
+      docker run --name "$TRAVIS_PULL_REQUEST_BRANCH" -v ${pwd}:/var/app/pr "$DOCKER_TAG";
       docker ps;
     fi
 
