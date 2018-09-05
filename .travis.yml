@@ -14,6 +14,7 @@ before_script:
 
 script:
   - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
+      echo "It is a PR."
       docker pull "$DOCKER_TAG";
       docker run --name test -v ${pwd}:/var/app/pr "$DOCKER_TAG";
       docker ps;
