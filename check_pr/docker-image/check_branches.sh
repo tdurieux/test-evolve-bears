@@ -26,12 +26,12 @@ MAVEN_TEST_ARGS="-Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=tr
 
 echo "Treating branch $BRANCH_NAME"
 
-echo "CHECK ORDER:"
-echo "- Existence of bears.json"
-echo "- Validity of bears.json"
-echo "- Number of commits"
-echo "- Maven test on buggy commit"
-echo "- Maven test on patched commit"
+echo "---CHECKING ORDER---\n"
+echo "Existence of bears.json"
+echo "Validity of bears.json"
+echo "Number of commits"
+echo "Maven test on buggy commit"
+echo "Maven test on patched commit"
 
 cd pr
 
@@ -54,7 +54,7 @@ numberOfCommits=`git rev-list --count HEAD`
 if [ "$numberOfCommits" -ne 3 ] && [ "$numberOfCommits" -ne 4 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (the number of commits is different than 3 and 4)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 fi
 
 bugCommitId=`git log --format=format:%H --grep="Bug commit"`
