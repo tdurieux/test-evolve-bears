@@ -18,4 +18,4 @@ ENV M2_HOME=$MAVEN_HOME
 ENV BRANCH_NAME=
 
 WORKDIR /var/app/
-ENTRYPOINT /var/app/check_branches.sh $BRANCH_NAME
+ENTRYPOINT /var/app/check_branch.sh $BRANCH_NAME

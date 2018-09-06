@@ -17,7 +17,7 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 JSON_SCHEMA="$SCRIPT_DIR/bears-schema.json"
 if [ ! -f $JSON_SCHEMA ]; then
     echo "The json schema ($JSON_SCHEMA) cannot be found."
-    exit -1
+    exit 2
 else
     echo "JSON schema path: $JSON_SCHEMA"
 fi
@@ -41,12 +41,12 @@ if [ -e "bears.json" ]; then
     else
         RESULT="$BRANCH_NAME [FAILURE] (bears.json is invalid)"
         >&2 echo -e "$RED $RESULT $NC"
-        exit 2
+        exit 1
     fi
 else
     RESULT="$BRANCH_NAME [FAILURE] (bears.json does not exist)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 fi
 
 numberOfCommits=`git rev-list --count HEAD`
@@ -54,7 +54,7 @@ numberOfCommits=`git rev-list --count HEAD`
 if [ "$numberOfCommits" -ne 3 ] && [ "$numberOfCommits" -ne 4 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (the number of commits is different than 3 and 4)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 fi
 
 bugCommitId=`git log --format=format:%H --grep="Bug commit"`
@@ -75,11 +75,11 @@ status=$?
 if [ "$status" -eq 0 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (bug reproduction - status = $status)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 elif [ "$status" -eq 124 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (bug reproduction timeout)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 fi
 
 echo "Checking out the patch commit: $patchCommitId"
@@ -93,11 +93,11 @@ status=$?
 if [ "$status" -eq 0 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (patch reproduction - status = $status)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 elif [ "$status" -eq 124 ]; then
     RESULT="$BRANCH_NAME [FAILURE] (patch reproduction timeout)"
     >&2 echo -e "$RED $RESULT $NC"
-    exit 2
+    exit 1
 fi
 
 RESULT="$BRANCH_NAME [OK]"
