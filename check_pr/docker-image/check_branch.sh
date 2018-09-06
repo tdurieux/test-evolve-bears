@@ -7,7 +7,7 @@ fi
 
 function checkCommit {
     echo "$1"
-    if grep -q "$2" "$1"; then
+    if [[ "$1" =~ "$2.*" ]]; then
         echo "The commit is OK."
     else
         RESULT="$BRANCH_NAME [FAILURE] (the commits are not in the correct sequence or some commit is missing)"

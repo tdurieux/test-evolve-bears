@@ -16,10 +16,11 @@ script:
       docker run --name "$TRAVIS_PULL_REQUEST_BRANCH" --mount type=bind,source="$(pwd)",target=/var/app/pr --env BRANCH_NAME="$TRAVIS_PULL_REQUEST_BRANCH" "$DOCKER_TAG";
       exit $(docker inspect "$TRAVIS_PULL_REQUEST_BRANCH" --format='{{.State.ExitCode}}');
     else
-      if grep -q "Merge pull request" "$TRAVIS_COMMIT_MESSAGE"; then
+      echo "Travis commit message - $TRAVIS_COMMIT_MESSAGE"
+      if [[ "$TRAVIS_COMMIT_MESSAGE" =~ "Merge pull request.*" ]]; then
         echo "A PR is being merged."
         NEW_BRANCH_NAME=$(echo "$TRAVIS_COMMIT_MESSAGE" | cut -d'/');
-        echo "New branch name $NEW_BRANCH_NAME"
+        echo "New branch name - $NEW_BRANCH_NAME"
         git push -f "$NEW_BRANCH_NAME";
       fi
     fi
