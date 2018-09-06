@@ -17,7 +17,8 @@ script:
       exit $(docker inspect "$TRAVIS_PULL_REQUEST_BRANCH" --format='{{.State.ExitCode}}');
     else
       echo "Travis commit message - $TRAVIS_COMMIT_MESSAGE"
-      if [ "$TRAVIS_COMMIT_MESSAGE" =~ Merge pull request ]; then
+      COMMIT_MESSAGE_PATTERN="Merge pull request";
+      if [[ "$TRAVIS_COMMIT_MESSAGE" == "$COMMIT_MESSAGE_PATTERN"* ]]; then
         echo "A PR is being merged."
         NEW_BRANCH_NAME=$(echo "$TRAVIS_COMMIT_MESSAGE" | cut -d'/');
         echo "New branch name - $NEW_BRANCH_NAME"
