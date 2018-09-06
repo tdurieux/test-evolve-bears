@@ -20,10 +20,9 @@ script:
       COMMIT_MESSAGE_PATTERN="Merge pull request";
       if [[ "$TRAVIS_COMMIT_MESSAGE" == "$COMMIT_MESSAGE_PATTERN"* ]]; then
         echo "A PR is being merged.";
-        #NEW_BRANCH_NAME=$(echo "$TRAVIS_COMMIT_MESSAGE" | cut -d'/');
         NEW_BRANCH_NAME="AAA";
         echo "New branch name - $NEW_BRANCH_NAME";
-        git push -f "$NEW_BRANCH_NAME";
+        git push -f "$NEW_BRANCH_NAME" HEAD:pr-add-bug;
       fi
     fi
 
