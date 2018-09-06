@@ -5,6 +5,17 @@ if [ "$#" -ne 1 ]; then
     exit 2
 fi
 
+function checkCommit {
+    echo "$1"
+    if grep -q "$2" "$1"; then
+        echo "The commit is OK."
+    else
+        RESULT="$BRANCH_NAME [FAILURE] (the commits are not in the correct sequence or some commit is missing)"
+        >&2 echo -e "$RED $RESULT $NC"
+        exit 1
+    fi
+}
+
 BRANCH_NAME=$1
 
 RED='\033[0;31m'
@@ -50,19 +61,52 @@ else
 fi
 
 numberOfCommits=`git rev-list --count HEAD`
-
-if [ "$numberOfCommits" -ne 3 ] && [ "$numberOfCommits" -ne 4 ]; then
-    RESULT="$BRANCH_NAME [FAILURE] (the number of commits is different than 3 and 4)"
+if [ "$numberOfCommits" -lt 4 ] ; then
+    RESULT="$BRANCH_NAME [FAILURE] (the number of commits is less than 4)"
     >&2 echo -e "$RED $RESULT $NC"
     exit 1
 fi
 
-bugCommitId=`git log --format=format:%H --grep="Bug commit"`
-patchCommitId=`git log --format=format:%H --grep="Human patch"`
+bugCommitId=""
 
-if [ "$numberOfCommits" -eq 4 ]; then
+case=$(cat bears.json | sed 's/.*"type": "\(.*\)".*/\1/;t;d')
+echo "Branch from case $case"
+if [ "$case" == "failing_passing" ]; then
+    echo "3 commits must exist."
+
+    echo "Checking commits..."
+
+    firstCommitMessage=`git log --format=format:%B --skip 2 -n 1`
+    checkCommit "$firstCommitMessage" "Bug commit"
+
+    secondCommitMessage=`git log --format=format:%B --skip 1 -n 1`
+    checkCommit "$secondCommitMessage" "Human patch"
+
+    thirdCommitMessage=`git log --format=format:%B -n 1`
+    checkCommit "$thirdCommitMessage" "End of the bug and patch reproduction process"
+
+    bugCommitId=`git log --format=format:%H --grep="Bug commit"`
+else
+    echo "4 commits must exist."
+
+    echo "Checking commits..."
+
+    firstCommitMessage=`git log --format=format:%B --skip 3 -n 1`
+    checkCommit "$firstCommitMessage" "Bug commit"
+
+    secondCommitMessage=`git log --format=format:%B --skip 2 -n 1`
+    checkCommit "$secondCommitMessage" "Changes in the tests"
+
+    thirdCommitMessage=`git log --format=format:%B --skip 1 -n 1`
+    checkCommit "$thirdCommitMessage" "Human patch"
+
+    fourthCommitMessage=`git log --format=format:%B -n 1`
+    checkCommit "$fourthCommitMessage" "End of the bug and patch reproduction process"
+
     bugCommitId=`git log --format=format:%H --grep="Changes in the tests"`
 fi
+
+patchCommitId=`git log --format=format:%H --grep="Human patch"`
 
 echo "Checking out the bug commit: $bugCommitId"
 git log --format=%B -n 1 $bugCommitId
