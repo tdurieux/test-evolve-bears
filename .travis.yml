@@ -11,17 +11,17 @@ env:
 
 script:
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-      echo "It is a PR."
+      echo "It is a PR.";
       docker pull "$DOCKER_TAG";
       docker run --name "$TRAVIS_PULL_REQUEST_BRANCH" --mount type=bind,source="$(pwd)",target=/var/app/pr --env BRANCH_NAME="$TRAVIS_PULL_REQUEST_BRANCH" "$DOCKER_TAG";
       exit $(docker inspect "$TRAVIS_PULL_REQUEST_BRANCH" --format='{{.State.ExitCode}}');
     else
-      echo "Travis commit message - $TRAVIS_COMMIT_MESSAGE"
+      echo "Travis commit message - $TRAVIS_COMMIT_MESSAGE";
       COMMIT_MESSAGE_PATTERN="Merge pull request";
       if [[ "$TRAVIS_COMMIT_MESSAGE" == "$COMMIT_MESSAGE_PATTERN"* ]]; then
-        echo "A PR is being merged."
+        echo "A PR is being merged.";
         NEW_BRANCH_NAME=$(echo "$TRAVIS_COMMIT_MESSAGE" | cut -d'/');
-        echo "New branch name - $NEW_BRANCH_NAME"
+        echo "New branch name - $NEW_BRANCH_NAME";
         git push -f "$NEW_BRANCH_NAME";
       fi
     fi
