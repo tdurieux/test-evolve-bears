@@ -1,0 +1,101 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.ufu.lascam:test-repairnator-bears-core:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.ufu.lascam:test-repairnator-bears-core:[unknown-version], /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/pom.xml, line 15, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.ufu.lascam:test-repairnator-bears-patchstats:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.ufu.lascam:test-repairnator-bears-patchstats:[unknown-version], /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/pom.xml, line 15, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] test-repairnator-bears
+[INFO] test-repairnator-bears-core
+[INFO] test-repairnator-bears-patchstats
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.0.0:checkstyle (verify) @ test-repairnator-bears ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ test-repairnator-bears ---
+[INFO] Installing /root/workspace/fermadeiral/test-repairnator-bears/386269112/pom.xml to /root/./workspace/fermadeiral/test-repairnator-bears/386269112/.m2/br/ufu/lascam/test-repairnator-bears/1.0-SNAPSHOT/test-repairnator-bears-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears-core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test-repairnator-bears-core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ test-repairnator-bears-core ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ test-repairnator-bears-core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-repairnator-bears-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ test-repairnator-bears-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ test-repairnator-bears-core ---
+[INFO] Building jar: /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/target/test-repairnator-bears-core-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.0.0:checkstyle (verify) @ test-repairnator-bears-core ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ test-repairnator-bears-core ---
+[INFO] Installing /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/target/test-repairnator-bears-core-1.0-SNAPSHOT.jar to /root/./workspace/fermadeiral/test-repairnator-bears/386269112/.m2/br/ufu/lascam/test-repairnator-bears-core/1.0-SNAPSHOT/test-repairnator-bears-core-1.0-SNAPSHOT.jar
+[INFO] Installing /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/pom.xml to /root/./workspace/fermadeiral/test-repairnator-bears/386269112/.m2/br/ufu/lascam/test-repairnator-bears-core/1.0-SNAPSHOT/test-repairnator-bears-core-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears-patchstats 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test-repairnator-bears-patchstats ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ test-repairnator-bears-patchstats ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ test-repairnator-bears-patchstats ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-repairnator-bears-patchstats ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ test-repairnator-bears-patchstats ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ test-repairnator-bears-patchstats ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.0.0:checkstyle (verify) @ test-repairnator-bears-patchstats ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ test-repairnator-bears-patchstats ---
+[INFO] Installing /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/target/test-repairnator-bears-patchstats-1.0-SNAPSHOT.jar to /root/./workspace/fermadeiral/test-repairnator-bears/386269112/.m2/br/ufu/lascam/test-repairnator-bears-patchstats/1.0-SNAPSHOT/test-repairnator-bears-patchstats-1.0-SNAPSHOT.jar
+[INFO] Installing /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/pom.xml to /root/./workspace/fermadeiral/test-repairnator-bears/386269112/.m2/br/ufu/lascam/test-repairnator-bears-patchstats/1.0-SNAPSHOT/test-repairnator-bears-patchstats-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] test-repairnator-bears ............................. SUCCESS [  1.596 s]
+[INFO] test-repairnator-bears-core ........................ SUCCESS [  1.422 s]
+[INFO] test-repairnator-bears-patchstats .................. SUCCESS [  0.064 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.206 s
+[INFO] Finished at: 2018-09-04T16:02:16+02:00
+[INFO] Final Memory: 22M/183M
+[INFO] ------------------------------------------------------------------------

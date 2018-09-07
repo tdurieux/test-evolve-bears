@@ -1,0 +1,145 @@
+{
+  "version": "Bears 1.0",
+  "repository": {
+    "name": "fermadeiral/test-repairnator-bears",
+    "githubId": 135598437,
+    "url": "https://github.com/fermadeiral/test-repairnator-bears",
+    "isFork": false,
+    "original": {
+      "name": "",
+      "githubId": 0,
+      "url": ""
+    },
+    "isPullRequest": false,
+    "pullRequestId": 0
+  },
+  "builds": {
+    "buggyBuild": {
+      "id": 386269112,
+      "url": "http://travis-ci.org/fermadeiral/test-repairnator-bears/builds/386269112",
+      "date": "May 31, 2018 6:50:27 PM"
+    },
+    "fixerBuild": {
+      "id": 386271668,
+      "url": "http://travis-ci.org/fermadeiral/test-repairnator-bears/builds/386271668",
+      "date": "May 31, 2018 6:56:58 PM"
+    }
+  },
+  "reproductionBuggyBuild": {
+    "reproductionDateBeginning": "Sep 4, 2018 3:58:55 PM",
+    "reproductionDateEnd": "Sep 4, 2018 4:02:46 PM",
+    "machineInfo": {
+      "hostName": "3866b9a9cc65",
+      "numberCPU": 4,
+      "freeMemory": 51244480,
+      "totalMemory": 60817408
+    },
+    "totalDuration": 226,
+    "processDurations": {
+      "cloning": {
+        "nbSteps": 1,
+        "totalDuration": 2,
+        "stepNames": [
+          "CloneRepository"
+        ],
+        "stepDurations": [
+          2
+        ]
+      },
+      "building": {
+        "nbSteps": 2,
+        "totalDuration": 135,
+        "stepNames": [
+          "CheckoutBuggyBuildCandidate",
+          "BuildProjectBuggyBuildCandidate"
+        ],
+        "stepDurations": [
+          0,
+          135
+        ]
+      },
+      "testing": {
+        "nbSteps": 1,
+        "totalDuration": 21,
+        "stepNames": [
+          "TestProjectBuggyBuildCandidate"
+        ],
+        "stepDurations": [
+          21
+        ]
+      }
+    },
+    "projectRootPomPath": "./workspace/fermadeiral/test-repairnator-bears/386269112/pom.xml"
+  },
+  "patchDiff": {
+    "files": {
+      "numberAdded": 0,
+      "numberChanged": 1,
+      "numberDeleted": 0
+    },
+    "lines": {
+      "numberAdded": 0,
+      "numberDeleted": 4
+    }
+  },
+  "tests": {
+    "failingModule": "/root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core",
+    "overallMetrics": {
+      "numberRunning": 4,
+      "numberPassing": 3,
+      "numberFailing": 1,
+      "numberErroring": 0,
+      "numberSkipping": 0,
+      "failures": [
+        {
+          "failureName": "org.junit.ComparisonFailure",
+          "isError": false,
+          "occurrences": 1
+        }
+      ]
+    },
+    "failingClasses": [
+      {
+        "testClass": "GitHelperTest",
+        "numberRunning": 4,
+        "numberPassing": 3,
+        "numberFailing": 1,
+        "numberErroring": 0,
+        "numberSkipping": 0
+      }
+    ],
+    "failureDetails": [
+      {
+        "testClass": "GitHelperTest",
+        "testMethod": "testGitCheckoutCommit",
+        "failureName": "org.junit.ComparisonFailure",
+        "detail": "expected:\u003c...21fb8ff2caa8e81a6663[]\u003e but was:\u003c...21fb8ff2caa8e81a6663[ ]\u003e",
+        "isError": false
+      }
+    ]
+  },
+  "projectMetrics": {
+    "numberModules": 2,
+    "numberSourceFiles": 2,
+    "numberTestFiles": 2,
+    "numberLibrariesFailingModule": 2,
+    "numberLines": 0
+  },
+  "commits": {
+    "buggyBuild": {
+      "repoName": "fermadeiral/test-repairnator-bears",
+      "branchName": "master",
+      "sha": "4d8db3a2ee3bc982df2a7c8225f9d205c20373f6",
+      "url": "http://github.com/fermadeiral/test-repairnator-bears/commit/4d8db3a2ee3bc982df2a7c8225f9d205c20373f6",
+      "date": "May 31, 2018 6:49:26 PM"
+    },
+    "fixerBuild": {
+      "repoName": "fermadeiral/test-repairnator-bears",
+      "branchName": "master",
+      "sha": "2381b4ac17999594c67ff65dee361f8097753db5",
+      "url": "http://github.com/fermadeiral/test-repairnator-bears/commit/2381b4ac17999594c67ff65dee361f8097753db5",
+      "date": "May 31, 2018 6:55:58 PM"
+    }
+  },
+  "type": "failing_passing"
+}

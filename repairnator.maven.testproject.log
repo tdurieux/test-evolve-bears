@@ -1,0 +1,125 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.ufu.lascam:test-repairnator-bears-core:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.ufu.lascam:test-repairnator-bears-core:[unknown-version], /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/pom.xml, line 15, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.ufu.lascam:test-repairnator-bears-patchstats:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.ufu.lascam:test-repairnator-bears-patchstats:[unknown-version], /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/pom.xml, line 15, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] test-repairnator-bears
+[INFO] test-repairnator-bears-core
+[INFO] test-repairnator-bears-patchstats
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears-core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test-repairnator-bears-core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ test-repairnator-bears-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ test-repairnator-bears-core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-repairnator-bears-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ test-repairnator-bears-core ---
+[INFO] Surefire report directory: /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running GitHelperTest
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace8561512087062489972
+Git command finished with exit code 0.
+Executing git command git diff --name-status 6565b62263c1a8209933587aa68dff5307abf32e e90c26bbfbdbdc9039090f4cd5108fc17273bf5d in /tmp/workspace8561512087062489972/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace4646854355803705385
+Git command finished with exit code 0.
+Executing git command git diff --numstat 6565b62263c1a8209933587aa68dff5307abf32e e90c26bbfbdbdc9039090f4cd5108fc17273bf5d in /tmp/workspace4646854355803705385/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace1511570185535527080
+Git command finished with exit code 0.
+Executing git command git checkout 64ac432f62f9b450ffb221fb8ff2caa8e81a6663 in /tmp/workspace1511570185535527080/bears-usage
+Git command finished with exit code 0.
+Executing git command git rev-parse HEAD in /tmp/workspace1511570185535527080/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace2742759740207389734
+Git command finished with exit code 0.
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.924 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-repairnator-bears-patchstats 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test-repairnator-bears-patchstats ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ test-repairnator-bears-patchstats ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ test-repairnator-bears-patchstats ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ test-repairnator-bears-patchstats ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ test-repairnator-bears-patchstats ---
+[INFO] Surefire report directory: /root/workspace/fermadeiral/test-repairnator-bears/386269112/test-repairnator-bears-patchstats/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running PatchStatsTest
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace8905349193849913094
+Git command finished with exit code 0.
+Executing git command git diff --name-status 6565b62263c1a8209933587aa68dff5307abf32e e90c26bbfbdbdc9039090f4cd5108fc17273bf5d in /tmp/workspace8905349193849913094/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace2054208623602671190
+Git command finished with exit code 0.
+Executing git command git diff --numstat 6565b62263c1a8209933587aa68dff5307abf32e e90c26bbfbdbdc9039090f4cd5108fc17273bf5d in /tmp/workspace2054208623602671190/bears-usage
+Git command finished with exit code 0.
+Executing git command git clone https://github.com/fermadeiral/bears-usage.git in /tmp/workspace8587600945337996922
+Git command finished with exit code 0.
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.95 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] test-repairnator-bears ............................. SUCCESS [  0.004 s]
+[INFO] test-repairnator-bears-core ........................ SUCCESS [ 11.326 s]
+[INFO] test-repairnator-bears-patchstats .................. SUCCESS [ 13.181 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 24.634 s
+[INFO] Finished at: 2018-09-04T16:02:43+02:00
+[INFO] Final Memory: 9M/110M
+[INFO] ------------------------------------------------------------------------
