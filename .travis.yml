@@ -8,6 +8,7 @@ services:
 env:
   global:
     - DOCKER_TAG=fermadeiral/test-evolve-bears:latest
+    - secure: "Qrqjw8L8Mu71b1/Lwtlmyf4EyzG1mGdDKmjAlXy29+JHSdhAskF1iIOaFH2SFHuSxJaGM+k9LNRJYdYAzUqxEH0q4Nmk5YvyKiYUl+5HNX2f+C855hGkE/mMKr0PmEncectpY5t7cYRUR0esbvx7AZyvQHSUDu4cPSzrLPGz2nz6K/040C7NGlma4ck9wsILLHvgSJ5HiZB97yLaVKJUave4Kt6hFag5zaHvEPqISs4b2w/cKVsi35JjIgseYITMUuXoVKMR9EDX1J59NLNV3NG3iPN8+tpZzICpY4j3qY7NitfS5o04sD/hZml938R/0cTgVnNP0jlVE1YfhN95p9F3m187r7zUtqLLN4Tf05nrDbCCZi4g6FKRPnLV3g8zU9lKN3I97kOA3Z+0MCy3R7p5sIUEvthypXK5bcFf8FaCLQKWIFex5//Js3Xg5YPnThSUt2SOXly5DbQ0ctElD52V2xTbbqXMohD08uTqmOdTsVQMOyOXNcK9CqX6AtpafNJ2BQzLy+bbO0Npd/OLkT/4PTrAT33ls0/5ptKSeFsaYjOi/uckGjRSOuAxax1PVZLSJut9iGuWtf8t08nkUZw5vAdFu9RF2f/7YcfKogCAVuWLe2tme35aNjMH1licBQi/MuioM+rT/dhRE1wf7lEKWDGPz7BIfO73npbrJJM="
 
 script:
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
@@ -21,12 +22,12 @@ script:
       if [[ "$TRAVIS_COMMIT_MESSAGE" == "$COMMIT_MESSAGE_PATTERN"* ]]; then
         echo "A PR is being merged.";
         NEW_BRANCH_NAME="AAA";
-        echo "New branch name - $NEW_BRANCH_NAME";
-        git remote -v;
-        git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*;
-        git fetch --tags;
+        echo "Branch to be created - $NEW_BRANCH_NAME";
+        git clone https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG;
+        cd "$TRAVIS_REPO_SLUG";
+        git checkout "$TRAVIS_BRANCH";
         git branch "$NEW_BRANCH_NAME";
-        git push -f "$NEW_BRANCH_NAME" HEAD:pr-add-bug;
+        git push -f "$NEW_BRANCH_NAME";
       fi
     fi
 
