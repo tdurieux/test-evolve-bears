@@ -22,6 +22,7 @@ script:
         echo "A PR is being merged.";
         NEW_BRANCH_NAME="AAA";
         echo "New branch name - $NEW_BRANCH_NAME";
+        git branch "$NEW_BRANCH_NAME"
         git push -f "$NEW_BRANCH_NAME" HEAD:pr-add-bug;
       fi
     fi
