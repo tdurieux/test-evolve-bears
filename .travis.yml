@@ -24,6 +24,7 @@ script:
         echo "New branch name - $NEW_BRANCH_NAME";
         git remote -v;
         git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*;
+        git fetch --tags;
         git branch "$NEW_BRANCH_NAME";
         git push -f "$NEW_BRANCH_NAME" HEAD:pr-add-bug;
       fi
